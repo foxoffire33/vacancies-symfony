@@ -15,11 +15,13 @@
         "symfony/dotenv": "*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "*",
+        "symfony/mailer": "6.1.*",
         "symfony/maker-bundle": "^1.43",
         "symfony/proxy-manager-bridge": "6.1.*",
         "symfony/runtime": "*",
         "symfony/security-bundle": "6.1.*",
-        "symfony/yaml": "*"
+        "symfony/yaml": "*",
+        "symfonycasts/verify-email-bundle": "^1.10"
     },
     "require-dev": {
         "symfony/stopwatch": "6.1.*",

@@ -51,10 +51,11 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
         Yield  MenuItem::section('Vacancies');
-        Yield MenuItem::linkToCrud("Companies",'fa fa-tags',AddressCrudController::getEntityFqcn());
-        Yield MenuItem::linkToCrud("Cities",'fa fa-tags',CityCrudController::getEntityFqcn());
-        Yield MenuItem::linkToCrud("Addresses",'fa fa-tags',AddressCrudController::getEntityFqcn());
+        Yield MenuItem::linkToCrud("Companies",'fa fa-building',CompanyCrudController::getEntityFqcn());
+        Yield MenuItem::linkToCrud("Cities",'fa fa-city',CityCrudController::getEntityFqcn());
+        Yield MenuItem::linkToCrud("Addresses",'fa fa-road',AddressCrudController::getEntityFqcn());
 
         Yield  MenuItem::section('Users');
+        Yield MenuItem::linkToCrud("Users",'fa fa-users',UserCrudController::getEntityFqcn());
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CompanyRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
@@ -19,8 +20,8 @@ class Company
     #[ORM\Column(type: 'string', length: 10000)]
     private $description;
 
-    #[ORM\Column(type: 'integer')]
-    private $address_id;
+    #[ORM\ManyToMany(targetEntity: Address::class, inversedBy: 'companies')]
+    private $address;
 
     public function getId(): ?int
     {
@@ -51,14 +52,14 @@ class Company
         return $this;
     }
 
-    public function getAddressId(): ?int
+    public function getAddress(): ?Collection
     {
-        return $this->address_id;
+        return $this->address;
     }
 
-    public function setAddressId(int $address_id): self
+    public function setAddress(Address $address): self
     {
-        $this->address_id = $address_id;
+        $this->address = $address;
 
         return $this;
     }

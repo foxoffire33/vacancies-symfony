@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AddressRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
@@ -21,6 +22,9 @@ class Address
 
     #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private $house_number_add;
+
+    #[ORM\Column(type: 'string', length: 6)]
+    private $postal;
 
     #[ORM\OneToOne(targetEntity: City::class)]
     private $city;
@@ -76,4 +80,27 @@ class Address
         $this->city = $city;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPostal()
+    {
+        return $this->postal;
+    }
+
+    /**
+     * @param mixed $postal
+     */
+    public function setPostal($postal): void
+    {
+        $this->postal = $postal;
+    }
+
+    public function __toString(): string
+    {
+        return "$this->street $this->house_number," . ($this->postal ?? "") . " $this->city";
+    }
+
+
 }

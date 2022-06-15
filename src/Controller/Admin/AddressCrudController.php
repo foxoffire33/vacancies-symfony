@@ -22,6 +22,7 @@ class AddressCrudController extends AbstractCrudController
             TextField::new('street'),
             IntegerField::new('house_number'),
             TextField::new('house_number_add'),
+            TextField::new('postal'),
             AssociationField::new('city','City')->autocomplete()
         ];
     }
