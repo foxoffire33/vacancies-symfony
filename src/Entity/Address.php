@@ -19,11 +19,11 @@ class Address
     #[ORM\Column(type: 'integer', length: 5)]
     private $house_number;
 
-    #[ORM\Column(type: 'string', length: 5)]
+    #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private $house_number_add;
 
-    #[ORM\Column(type: 'integer')]
-    private $city_id;
+    #[ORM\OneToOne(targetEntity: City::class)]
+    private $city;
 
     public function getId(): ?int
     {
@@ -66,15 +66,14 @@ class Address
         return $this;
     }
 
-    public function getCityId(): ?int
+    public function getCity(): ?City
     {
-        return $this->city_id;
+        return $this->city;
     }
 
-    public function setCityId(int $city_id): self
+    public function setCity(?City $city): self
     {
-        $this->city_id = $city_id;
-
+        $this->city = $city;
         return $this;
     }
 }
