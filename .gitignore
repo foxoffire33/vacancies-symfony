@@ -8,3 +8,12 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+/docker
+
+composer.lock
+composer-setup.php
+composer.phar
+symfony.lock
+docker-compose.yml
+.idea
